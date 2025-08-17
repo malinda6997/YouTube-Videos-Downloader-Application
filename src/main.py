@@ -5,8 +5,14 @@ MVC Architecture Implementation with Splash Screen
 
 import sys
 import os
-from splash import show_splash_screen
-from controller import YouTubeDownloaderController
+
+# Add current directory to Python path for relative imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
+from ui.splash import show_splash_screen
+from core.controller import YouTubeDownloaderController
 
 
 def main():

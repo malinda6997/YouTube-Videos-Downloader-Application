@@ -40,13 +40,21 @@ A simple and elegant YouTube video downloader built with Python using MVC archit
 ## Project Structure
 
 ```
-YT-VIDEOS-DAWNLOADER/
-├── main.py          # Entry point of the application
-├── controller.py    # Controller (MVC pattern)
-├── model.py         # Model (MVC pattern)
-├── view.py          # View (MVC pattern)
-├── requirements.txt # Dependencies
-└── README.md        # This file
+YouTube-Videos-Downloader-Application/
+├── src/                     # Source code
+│   ├── core/               # Business logic
+│   │   ├── model.py        # Download engine
+│   │   └── controller.py   # MVC controller
+│   ├── ui/                 # User interface
+│   │   ├── view.py         # Main GUI
+│   │   └── splash.py       # Loading screen
+│   └── utils/              # Utilities
+│       └── config.py       # Configuration
+├── tests/                  # Test files
+├── docs/                   # Documentation
+├── scripts/                # Utility scripts
+├── main.py                 # Entry point
+└── requirements.txt        # Dependencies
 ```
 
 ## MVC Architecture

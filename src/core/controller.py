@@ -3,8 +3,17 @@ Controller module for YouTube Video Downloader
 Manages interaction between Model and View components
 """
 
-from model import YouTubeDownloaderModel
-from view import YouTubeDownloaderView
+import sys
+import os
+
+# Add src directory to path for imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_dir = os.path.dirname(current_dir)
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
+from core.model import YouTubeDownloaderModel
+from ui.view import YouTubeDownloaderView
 import threading
 
 
