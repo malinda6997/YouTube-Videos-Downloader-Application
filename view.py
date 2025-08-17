@@ -76,7 +76,7 @@ class VideoInfoWindow:
         
         # Buttons frame
         buttons_frame = tk.Frame(main_frame, bg="white")
-        buttons_frame.pack(fill=tk.X, pady=(10, 0))
+        buttons_frame.pack(pady=(10, 0))
         
         # Copy button
         self.copy_btn = tk.Button(
@@ -91,7 +91,7 @@ class VideoInfoWindow:
             cursor="hand2",
             command=self.copy_info
         )
-        self.copy_btn.pack(side=tk.LEFT, padx=(0, 10))
+        self.copy_btn.pack(side=tk.LEFT, padx=10)
         
         # Close button
         self.close_btn = tk.Button(
@@ -106,7 +106,21 @@ class VideoInfoWindow:
             cursor="hand2",
             command=self.close_window
         )
-        self.close_btn.pack(side=tk.RIGHT)
+        self.close_btn.pack(side=tk.LEFT, padx=10)
+        
+        # Copyright section for info window
+        copyright_frame_info = tk.Frame(main_frame, bg="white")
+        copyright_frame_info.pack(fill=tk.X, pady=(10, 0))
+        
+        # Copyright label for info window
+        copyright_label_info = tk.Label(
+            copyright_frame_info,
+            text="© 2025 Malinda Prabath",
+            font=("Arial", 8),
+            bg="white",
+            fg="#888888"
+        )
+        copyright_label_info.pack()
         
         # Display the video information
         self.display_info()
@@ -304,7 +318,7 @@ class YouTubeDownloaderView:
         
         # Buttons frame
         buttons_frame = tk.Frame(main_frame, bg="white")
-        buttons_frame.pack(fill=tk.X, pady=(20, 0))
+        buttons_frame.pack(pady=(20, 0))
         
         # Continue (Download) button
         self.download_btn = tk.Button(
@@ -319,7 +333,7 @@ class YouTubeDownloaderView:
             cursor="hand2",
             command=self.on_download_click
         )
-        self.download_btn.pack(side=tk.LEFT, padx=(0, 10))
+        self.download_btn.pack(side=tk.LEFT, padx=10)
         
         # Get Info button
         self.info_btn = tk.Button(
@@ -334,7 +348,7 @@ class YouTubeDownloaderView:
             cursor="hand2",
             command=self.on_get_info_click
         )
-        self.info_btn.pack(side=tk.LEFT, padx=(0, 10))
+        self.info_btn.pack(side=tk.LEFT, padx=10)
         
         # Clear button
         self.clear_btn = tk.Button(
@@ -349,7 +363,7 @@ class YouTubeDownloaderView:
             cursor="hand2",
             command=self.clear_input
         )
-        self.clear_btn.pack(side=tk.LEFT)
+        self.clear_btn.pack(side=tk.LEFT, padx=10)
         
         # Progress section
         progress_frame = tk.Frame(main_frame, bg="white")
@@ -388,6 +402,20 @@ class YouTubeDownloaderView:
             justify=tk.LEFT
         )
         self.status_label.pack(anchor=tk.W)
+        
+        # Copyright section
+        copyright_frame = tk.Frame(main_frame, bg="white")
+        copyright_frame.pack(fill=tk.X, pady=(30, 10))
+        
+        # Copyright label
+        copyright_label = tk.Label(
+            copyright_frame,
+            text="COPYRIGHT © 2025 MALINDA PRABATH. ALL RIGHTS RESERVED.",
+            font=("Arial", 8),
+            bg="white",
+            fg="#888888"
+        )
+        copyright_label.pack()
         
         # Initially hide progress
         self.hide_progress()

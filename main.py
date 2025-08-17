@@ -1,17 +1,21 @@
 """
 Main entry point for YouTube Video Downloader Application
-MVC Architecture Implementation
+MVC Architecture Implementation with Splash Screen
 """
 
 import sys
 import os
+from splash import show_splash_screen
 from controller import YouTubeDownloaderController
 
 
 def main():
     """Main function to start the YouTube Video Downloader application"""
     try:
-        # Create and run the application
+        # Show splash screen first
+        show_splash_screen()
+        
+        # Create and run the main application
         app = YouTubeDownloaderController()
         app.run()
         
