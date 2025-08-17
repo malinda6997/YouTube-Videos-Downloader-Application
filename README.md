@@ -28,6 +28,7 @@ A simple and elegant YouTube video downloader built with Python using MVC archit
 ## Usage
 
 1. Run the application:
+
    ```bash
    python main.py
    ```
@@ -66,6 +67,7 @@ YouTube-Videos-Downloader-Application/
 ## Features Explanation
 
 ### GUI Components
+
 - **Main Title**: "YouTube Video Downloader"
 - **Input Field**: "Please enter your link"
 - **Continue Button**: Starts the download process
@@ -75,6 +77,7 @@ YouTube-Videos-Downloader-Application/
 - **Status Messages**: Success/error feedback
 
 ### Functionality
+
 - URL validation for YouTube links
 - Video information extraction
 - High-quality video download (up to 720p)
@@ -91,6 +94,7 @@ YouTube-Videos-Downloader-Application/
 ## Download Location
 
 By default, videos are downloaded to:
+
 - Windows: `C:\Users\[Username]\Downloads\YouTube_Videos\`
 - macOS/Linux: `~/Downloads/YouTube_Videos/`
 
