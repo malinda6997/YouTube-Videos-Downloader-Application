@@ -1,0 +1,24 @@
+# YouTube Video Downloader - Distribution Requirements
+# This file contains all dependencies needed for creating a standalone executable
+
+# Core dependencies
+yt-dlp>=2024.1.1
+requests>=2.31.0
+
+# Packaging dependencies
+PyInstaller>=6.0.0
+Pillow>=10.0.0
+
+# Additional runtime dependencies
+certifi
+charset-normalizer
+idna
+urllib3
+
+# Packaging dependencies
+pyinstaller>=6.0.0
+pillow>=10.0.0
+setuptools>=68.0.0
+
+# Optional: For better video processing
+ffmpeg-python>=0.2.0

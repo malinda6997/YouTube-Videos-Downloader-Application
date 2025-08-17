@@ -1,0 +1,16 @@
+﻿YouTube Video Downloader - Installation Instructions
+=====================================================
+
+1. Copy YouTube_Video_Downloader.exe to your desired location
+2. Double-click YouTube_Video_Downloader.exe to run
+3. Enjoy downloading YouTube videos!
+
+Features:
+- Download YouTube videos up to 720p quality
+- Smart playlist detection
+- Professional user interface
+- No Python installation required
+
+Developed by Malinda Prabath
+
+For support or issues, please contact the developer.
