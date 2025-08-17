@@ -1,0 +1,84 @@
+INSTALLATION INSTRUCTIONS
+========================
+
+🎉 Welcome to YouTube Video Downloader!
+
+📋 WHAT YOU'VE RECEIVED:
+- YouTube_Video_Downloader.exe (The main application)
+- This instruction file
+
+💻 SYSTEM REQUIREMENTS:
+- Windows 10 or Windows 11
+- Internet connection for downloading videos
+- No Python or additional software needed!
+
+🚀 INSTALLATION STEPS:
+
+1. EXTRACT FILES (if you received a zip):
+   - Right-click the zip file → "Extract All"
+   - Choose a location like Desktop or Documents
+
+2. CREATE A FOLDER (Recommended):
+   - Create a new folder called "YouTube Downloader"
+   - Move all files into this folder
+
+3. RUN THE APPLICATION:
+   - Double-click "YouTube_Video_Downloader.exe"
+   - Wait 3-5 seconds for the app to start
+
+🛡️ SECURITY NOTICE:
+If Windows shows a security warning:
+- Click "More info" → "Run anyway"
+- This is normal for new applications
+- The software is completely safe
+
+🎯 HOW TO USE:
+
+1. COPY A YOUTUBE VIDEO URL:
+   - Go to YouTube
+   - Copy the video link (https://www.youtube.com/watch?v=...)
+
+2. PASTE THE LINK:
+   - Paste the URL in the application
+   - Click "Get Video Info"
+
+3. DOWNLOAD THE VIDEO:
+   - Choose your download folder
+   - Click "Download Video"
+   - Wait for completion
+
+✨ FEATURES:
+- Download videos up to 720p quality
+- Smart playlist detection
+- Easy-to-use interface
+- Progress tracking
+- Custom download locations
+
+⚠️ IMPORTANT NOTES:
+- Only download videos you have permission to download
+- Respect copyright laws and YouTube's terms of service
+- Use responsibly and ethically
+
+🆘 TROUBLESHOOTING:
+
+Problem: App won't start
+Solution: Try running as administrator (right-click → "Run as administrator")
+
+Problem: Antivirus blocks the app
+Solution: Add the file to your antivirus exceptions
+
+Problem: Download fails
+Solution: Check your internet connection and try a different video
+
+Problem: "Not a valid YouTube URL" error
+Solution: Make sure you're using a direct YouTube video link
+
+📞 NEED HELP?
+Contact: Malinda Prabath
+Email: [Your email here]
+
+🎉 ENJOY DOWNLOADING VIDEOS!
+
+---
+Developed by Malinda Prabath
+Version 1.0 - 2024
