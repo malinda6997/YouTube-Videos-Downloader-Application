@@ -39,10 +39,31 @@ class YouTubeDownloaderModel:
             ydl_opts = {
                 'quiet': True,
                 'no_warnings': True,
+                'extract_flat': True,  # For playlist detection
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
+                
+                # Check if this is a playlist
+                if info.get('_type') == 'playlist':
+                    return {
+                        'title': info.get('title', 'Unknown Playlist'),
+                        'duration': 0,
+                        'uploader': 'Playlist',
+                        'view_count': 0,
+                        'upload_date': 'N/A',
+                        'filesize': 0,
+                        'description': f"This is a playlist with {len(info.get('entries', []))} videos. Please use the direct video URL instead of the playlist URL.",
+                        'is_playlist': True,
+                        'playlist_count': len(info.get('entries', [])),
+                        'first_video_url': f"https://www.youtube.com/watch?v={info['entries'][0]['id']}" if info.get('entries') else None
+                    }
+                
+                # If it's a single video, get detailed info
+                ydl_opts['extract_flat'] = False
+                with yt_dlp.YoutubeDL(ydl_opts) as ydl_detailed:
+                    info = ydl_detailed.extract_info(url, download=False)
                 
                 # Get the best format for size estimation
                 formats = info.get('formats', [])
@@ -78,6 +99,24 @@ class YouTubeDownloaderModel:
                 'error': 'Invalid YouTube URL provided'
             }
         
+        # Check if it's a playlist first
+        try:
+            ydl_opts_check = {
+                'quiet': True,
+                'extract_flat': True,
+            }
+            with yt_dlp.YoutubeDL(ydl_opts_check) as ydl:
+                info = ydl.extract_info(url, download=False)
+                if info.get('_type') == 'playlist':
+                    return {
+                        'success': False,
+                        'error': f'Playlist detected with {len(info.get("entries", []))} videos. Please use a direct video URL instead of playlist URL.',
+                        'is_playlist': True,
+                        'first_video_url': f"https://www.youtube.com/watch?v={info['entries'][0]['id']}" if info.get('entries') else None
+                    }
+        except:
+            pass  # Continue with normal download if playlist check fails
+        
         try:
             def progress_hook(d):
                 if progress_callback and d['status'] == 'downloading':
@@ -89,6 +128,7 @@ class YouTubeDownloaderModel:
                 'outtmpl': os.path.join(self.download_path, '%(title)s.%(ext)s'),
                 'format': 'best[height<=720]',  # Download best quality up to 720p
                 'progress_hooks': [progress_hook],
+                'noplaylist': True,  # Download only the video, not the playlist
             }
             
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:

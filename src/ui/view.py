@@ -138,6 +138,38 @@ class VideoInfoWindow:
         """Format video information for display"""
         info = self.video_info
         
+        # Check if this is playlist information
+        if info.get('is_playlist'):
+            return f"""╔════════════════════════════════════════════════════════════════╗
+║                         PLAYLIST DETECTED                         ║
+╚════════════════════════════════════════════════════════════════╝
+
+🎵 PLAYLIST NAME:
+{info.get('title', 'Unknown Playlist')}
+
+📊 TOTAL VIDEOS:
+{info.get('playlist_count', 0)} videos
+
+⚠️ NOTICE:
+{info.get('description', 'This is a playlist. Individual videos cannot be downloaded from playlist URLs.')}
+
+🎯 RECOMMENDED ACTION:
+To download a specific video, please copy the individual video URL instead of the playlist URL.
+
+🔗 FIRST VIDEO URL:
+{info.get('first_video_url', 'Not available')}
+
+📂 DOWNLOAD PATH:
+{info.get('download_path', 'Default Downloads Folder')}
+
+📋 ORIGINAL URL:
+{info.get('url', 'N/A')}
+
+════════════════════════════════════════════════════════════════
+
+💡 TIP: Copy the first video URL above to download that specific video
+"""
+        
         # Format duration
         duration = info.get('duration', 0)
         if duration:
@@ -497,6 +529,26 @@ class YouTubeDownloaderView:
         self.status_var.set(f"✗ {message}")
         self.status_label.config(fg="#F44336")
         self.hide_progress()
+    
+    def show_playlist_error(self, message: str, first_video_url: str):
+        """Show playlist error with option to download first video"""
+        self.status_var.set(f"✗ Playlist detected")
+        self.status_label.config(fg="#F44336")
+        self.hide_progress()
+        
+        # Show dialog with option to download first video
+        result = messagebox.askyesno(
+            "Playlist Detected", 
+            f"{message}\n\nWould you like to download the first video instead?",
+            icon='question'
+        )
+        
+        if result:
+            # User wants to download the first video
+            self.url_entry.delete(0, tk.END)
+            self.url_entry.insert(0, first_video_url)
+            self.status_var.set(f"ℹ First video URL loaded. Click Download to proceed.")
+            self.status_label.config(fg="#2196F3")
     
     def show_info_message(self, message: str):
         """Show info message"""

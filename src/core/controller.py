@@ -54,7 +54,12 @@ class YouTubeDownloaderController:
             if result['success']:
                 self.view.root.after(0, self.view.show_success, result['message'])
             else:
-                self.view.root.after(0, self.view.show_error, result['error'])
+                # Check if it's a playlist error and provide helpful guidance
+                if result.get('is_playlist') and result.get('first_video_url'):
+                    error_msg = f"{result['error']}\n\nDid you want to download the first video instead?\nFirst video URL: {result['first_video_url']}"
+                    self.view.root.after(0, self.view.show_playlist_error, error_msg, result['first_video_url'])
+                else:
+                    self.view.root.after(0, self.view.show_error, result['error'])
             
         except Exception as e:
             self.view.root.after(0, self.view.show_error, f"Unexpected error: {str(e)}")
